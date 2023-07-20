@@ -2,11 +2,7 @@ package transit;
 
 import java.util.ArrayList;
 
-/**
- * This class is designed to test each method in the Transit file interactively
- * 
- * @author Ishaan Ivaturi
- */
+
 public class Driver {
     public static void main(String[] args) {
 		String[] methods = {"makeList", "removeStation", "addStop", "bestPath", "duplicate", "addScooter"};
@@ -74,7 +70,6 @@ public class Driver {
 
 		StdIn.resync();
 
-		// Call student's makeList method with the arrays, then display it
 		StdOut.println();
 		Transit studentList = new Transit();
 		studentList.makeList(input[0], input[1], input[2]);
@@ -84,11 +79,9 @@ public class Driver {
     }
 
 	private static void testRemoveStation(String filename) {
-		// Use testMakeList to both print out and obtain original list
 		StdOut.print("\nOriginal List:");
 		Transit studentList = testMakeList(filename);
 		
-		// Call student removeStation method for specified station and output
 		StdOut.print("Enter a station to remove => ");
 		studentList.removeTrainStation(Integer.parseInt(StdIn.readLine()));
 		StdOut.println("\nFinal list:");
@@ -99,7 +92,6 @@ public class Driver {
 	private static void testAddStop(String filename) {
 		StdOut.print("\nOriginal List:");
 		Transit studentList = testMakeList(filename);
-		// Call student addStop method on specified number, and display list
 		StdOut.print("Enter a bus stop to add => ");
 		studentList.addBusStop(Integer.parseInt(StdIn.readLine()));
 		StdOut.println("\nFinal list:");
@@ -111,7 +103,6 @@ public class Driver {
 		StdOut.print("\nLayered Linked List:");
 		Transit studentList = testMakeList(filename);
 
-		// Print best path from student bestPath method
 		StdOut.print("Enter a destination => ");
 		int destination = Integer.parseInt(StdIn.readLine());
 		StdOut.println("\nBest path:");
@@ -127,7 +118,6 @@ public class Driver {
 		StdOut.print("\nOriginal list:");
 		Transit studentList = testMakeList(filename);
 
-		// Call student duplicate method then print list
 		Transit duplicateList = new Transit(studentList.duplicate());
 		StdOut.println("Duplicate:");
 		duplicateList.printList();
@@ -138,7 +128,6 @@ public class Driver {
 		StdOut.print("\nOriginal list:");
 		Transit studentList = testMakeList(filename);
 
-		// Read in scooter size, then read in each scooter stop
 		StdOut.print("Enter a scooter layer input file => ");
 		String scooterFile = StdIn.readLine();
 		StdIn.setFile(scooterFile);
@@ -148,7 +137,6 @@ public class Driver {
 		}
 		StdIn.resync();
 
-		// Call student addScooter method and print out list
 		studentList.addScooter(scooterStops);
 		StdOut.println("\nFinal list:");
 		studentList.printList();
